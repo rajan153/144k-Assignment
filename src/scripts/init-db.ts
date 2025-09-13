@@ -27,7 +27,7 @@ async function initializeDatabase() {
       name: "Founder",
       email: "founder@144k.com",
       joinedAt: new Date(),
-      generatedInvites: [],
+      generatedInvites: [] as string[],
       invitedBy: "FOUNDER-CODE",
       isActive: true,
     };
@@ -46,7 +46,8 @@ async function initializeDatabase() {
     const invitesCollection = db.collection("invites");
     for (const code of initialInviteCodes) {
       await invitesCollection.insertOne({
-        _id: code,
+        _id: new ObjectId(),
+        code: code,
         generatedBy: firstUser._id,
         createdAt: new Date(),
       });
