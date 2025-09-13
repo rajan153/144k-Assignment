@@ -248,7 +248,7 @@ export default function Home() {
                         <XCircle className="w-5 h-5" />
                       )}
                       <span className="text-sm">
-                        {validationResult.message}
+                        {validationResult.message || validationResult.error}
                       </span>
                     </motion.div>
                   )}
