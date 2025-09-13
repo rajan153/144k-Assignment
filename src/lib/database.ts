@@ -72,7 +72,7 @@ export class DatabaseService {
 
     const newInvite: Invite = {
       _id: inviteData.code,
-      generatedBy: inviteData.generatedBy,
+      generatedBy: inviteData.generatedBy.toString(),
       createdAt: new Date(),
     };
 
@@ -94,7 +94,7 @@ export class DatabaseService {
       {
         $set: {
           usedAt: new Date(),
-          usedBy: userId,
+          usedBy: userId.toString(),
         },
       }
     );
