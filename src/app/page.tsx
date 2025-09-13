@@ -26,6 +26,7 @@ export default function Home() {
   const [validationResult, setValidationResult] = useState<{
     valid: boolean;
     message: string;
+    error?: string;
   } | null>(null);
   const [showRegistration, setShowRegistration] = useState(false);
   const [registrationData, setRegistrationData] = useState({
@@ -45,7 +46,7 @@ export default function Home() {
       const response = await fetch("/api/stats");
       const data = await response.json();
       setStats(data);
-    } catch (error) {
+    } catch (error: any) {
       console.error("Failed to fetch stats:", error);
     }
   };
@@ -70,7 +71,7 @@ export default function Home() {
         setRegistrationData((prev) => ({ ...prev, inviteCode }));
         setShowRegistration(true);
       }
-    } catch (error) {
+    } catch (error: any) {
       setValidationResult({
         valid: false,
         message: "Failed to validate invite code",
