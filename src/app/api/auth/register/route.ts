@@ -3,7 +3,6 @@ import { dbService } from "@/lib/database";
 import { generateInviteCodes } from "@/lib/inviteGenerator";
 import { broadcastNewMember, broadcastStatsUpdate } from "@/lib/websocket";
 import { CreateUserData } from "@/models/User";
-import { ObjectId } from "mongodb";
 
 export async function POST(request: NextRequest) {
   try {
